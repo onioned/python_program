@@ -164,5 +164,7 @@ print "5 - c 的值为：", c
 c = a >> 2;  # 15 = 0000 1111
 print "6 - c 的值为：", c
 
+print '测试github同步'
+
 
 
