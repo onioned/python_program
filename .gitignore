@@ -12,5 +12,5 @@ dist
 build
 
 # My configurations:
- 
+ignored.txt
 test_1/
