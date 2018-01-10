@@ -13,4 +13,4 @@ build
 
 # My configurations:
 ignored.txt
-test_1/
+test_1/.idea
