@@ -12,5 +12,11 @@ dist
 build
 
 # My configurations:
+
+#测试文件
 ignored.txt
+
+#pycharm产生的文件，无需提交
 test_1/.idea
+test_1/venv
+test_1/venv1
