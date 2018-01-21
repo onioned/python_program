@@ -214,7 +214,7 @@ d%s
 '''%('字符1','字符2','字符3','字符4')
 
 
-#------------------------------------------创建数组：-----------------------------------
+#------------------------------------------创建list--数组：-----------------------------------
 
 print range(10)     #从0到10创建一个整数列表  range(start, stop[, step])
 
@@ -295,3 +295,114 @@ while n <= 100:
     print(n)
     n = n + 1
 print('END')
+
+#------------------------------------------字典(类似于对象)：-----------------------------------
+
+#dict
+print('字典：');
+#初始化
+dict = {
+    'a':'aaa',
+    'bb':'bbb',
+}
+#自定义：
+dict['ccc'] = 'cccc';
+print(dict);
+print(dict['a']);
+
+#查找某个key是否存在字典中 in 方法
+print('ddd' in dict);   #false 不存在
+print('a' in dict);     #true 存在
+
+#二通过dict.get（key,【指定代表不存在参数，默认None】），不存在返回None或自定义参数,存在返回value
+
+print(dict.get('bb'))    #返回 bbb
+print(dict.get('eee'))   #返回 None   不存在
+
+#删除值 pop(key)
+dict.pop('a');
+print(dict);        # 删除key为 a 的值
+
+
+#------------------------------------------set：-----------------------------------
+
+#set可以看成数学意义上的无序和无重复元素的集合，因此，两个set可以做数学意义上的交集、并集等操作
+
+s1 = set([1, 2, 3])
+s2 = set([2, 3, 4])
+print(s1);
+print(s2);
+print('逻辑运算:')
+#或运算
+print(s1 | s2);
+#与运算
+print(s1 & s2);
+#添加元素到set中add(key)，可以重复添加，但不会有效果
+s1.add(456);
+print(s1);
+#通过remove(key)方法可以删除元素
+s1.remove(456);
+print(s1);
+
+#------------------------------------------函数定义：-----------------------------------
+
+print('函数开始：')
+
+def han1():
+    print('hello world')
+
+han1();
+
+
+def han2():
+ return 123 ,456    #返回的是tuple
+
+ttt = han2();
+print(ttt);
+print(ttt[0]);
+print(ttt[1]);
+
+
+def add_end(L=[4,4,4]):
+    L.append('END')
+    print(L);
+    return L
+
+
+add_end([1,2,3]);   #不受影响
+add_end([1,2,3]);
+add_end([1,2]);
+add_end();      #
+add_end();      #实验证明：当默认值为可变数值，多次使用默认值，默认值会改变，（指针，引用）
+                #应该避免使用可变参数作为默认值
+
+print('默认值为可变：');
+
+def add_end2(L=333):
+    L = [];
+    L.append('end')
+    print(L);
+    return L
+
+
+add_end2();
+add_end2();
+add_end2();
+
+
+'''def han3(a,b,c,d='dd',e):
+    print('successs')
+
+han3(1,2,3,4)  '''     #SyntaxError: non-default argument follows default argument  不能把默认值写在非默认值前面，引起异议，默认值写在后面
+
+def han3(a,b,c,d='dd',e='ee'):
+    print('successs')
+
+han3(1,2,3,);
+han3(1,2,3,4);
+han3(1,2,3,e='fff');    #多个默认值，直接用表达式，可跳过前面的默认值
+
+
+
+
+
