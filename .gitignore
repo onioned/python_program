@@ -15,7 +15,7 @@ build
 
 #测试文件
 ignored.txt
-
+workspace.xml
 #pycharm产生的文件，无需提交
 test_1/.idea
 test_1/.idea/workspace.xml
