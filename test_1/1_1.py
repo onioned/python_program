@@ -271,22 +271,22 @@ print arr[4::-2]   #从4逆序开始以步长2跳    4 -> 2 0
 #2.[：：Y]  大于0从左到右跳步(顺序)，小于0则从右到左跳步（逆序），步长Y
 #3.[X ：：Y] 大于0则从X开始（包含X）从左到右跳步，小于0则从X开始从右到左跳步，步长Y
 
-print '----分割线 end----'
+print ('----分割线 end----')
 
 #------------------------------------------循环：-----------------------------------
 #list()
 #range()
 
-print range(5);
+print (range(5));
 #print list(range(5));
 
 
 for x in range(10):
-    print x;
+    print (x);
 
 arr = ['a','b','c','d','e']
 for x in arr:
-    print x;
+    print (x);
 
 n = 1
 while n <= 100:
@@ -495,16 +495,83 @@ tuple : ()
 字符串
 以上都能切片
 
+'''
 
+print ('ABCDEFG'[:3])
+
+#L = (range(100));   #创建 0~100的列表
+#print(L);
+
+L = []
+
+#循环
+for i in range(0,99):
+    L.append(i)
+
+L = (range(100));
+
+print  L[0];
+print  L[0:20];
+print  L[0:20];
+print  L[:10:2];  #前10个数，每2各取一个
+print  L[:];
+
+'''------------------迭代 -- 循环------------------
+'''
+
+for i in 'ABC':    #字符串
+    pass
+
+for i in [1,2,3]:    #list
+    pass
+
+for i in (1,2,3):    #tuple
+    pass
+
+d = {'a':1,'b':2}
+
+for key in d:               #遍历dict 的 key
+    pass
+
+for value in {}.values():    #dict 的 values
+    pass
+
+for k, v in d.items():      #dict 的key, values
+    pass
+
+'''------------------列表生成式------------------
+ 
+ [表达式  for x in 列表 条件 ]
 
 '''
 
-print 'ABCDEFG'[:3]
+print '分割线------------';
 
-L = list(range(100));
-print(L);
+print [x * x for x in range(1, 11)]
 
+print [x * x for x in range(1, 11) if x % 2 == 0 if x % 3 == 0]  #?：允许多个条件，那条件怎么算
 
+print [m + n for m in 'ABC' for n in 'XYZ']   #嵌套
+
+'''------------------生成器------------------
+创建一个generator，第一种方法：列表生成式的[]改成()
+ 
+'''
+
+(x * x for x in range(10))
+
+'''------------------迭代器------------------
+ 
+我们已经知道，可以直接作用于for循环的数据类型有以下几种：
+
+一类是集合数据类型，如list、tuple、dict、set、str等；
+
+一类是generator，包括生成器和带yield的generator function。
+
+这些可以直接作用于for循环的对象统称为可迭代对象：Iterable。
+
+可以使用isinstance()判断一个对象是否是Iterable对象：
+'''
 
 
 

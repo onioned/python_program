@@ -1,4 +1,4 @@
-# Windows:
+﻿# Windows:
 Thumbs.db
 ehthumbs.db
 Desktop.ini
@@ -21,4 +21,5 @@ test_1/.idea
 test_1/.idea/workspace.xml
 test_1/venv
 test_1/venv1
+test_1/venv36
  
