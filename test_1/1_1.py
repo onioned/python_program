@@ -573,5 +573,34 @@ print [m + n for m in 'ABC' for n in 'XYZ']   #嵌套
 可以使用isinstance()判断一个对象是否是Iterable对象：
 '''
 
+'''------------题外：递归函数---------------'''
+
+def han8(year=1,sum=0):
+        # print(sum)
+         if year > 20:
+             print(sum)
+             return
+         else:
+             sum = (sum + 1) * 1.2
+             year = year + 1
+             han8(year, sum)
+han8()
+
+
+x = 1.2
+for i in range(0,19):
+    y=(x+1)*0.2 + 1+x
+    x=y
+
+print(1.2 + x)
+
+
+
+'''---------------------------'''
+
+
+
+
+
 
 
