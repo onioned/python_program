@@ -184,6 +184,7 @@ def f3(x):
     return y()          #2.返回函数运行结果
 
 a=f1;           #获取函数体,不带参数【当函数定义了参数，这种无意义】
+a();            #f1函数指向新名字，可以用a来调用，完全一样用法
 a0=f1();        #获取函数运行结果，直接在后面加()表示运行
 a1=f2
 a2=f2(1)
@@ -200,7 +201,117 @@ print(a3);
 print(a4);
 print(a5);
 
-'''--------------------返回函数-----------------------
-高阶函数除了可以接受函数作为参数外，还可以把函数作为结果值返回
+'''--------------------闭包函数-----------------------
+函数内包含子函数，子函数使用父级局部变量，多次运行函数，里面的局部变量会改变 
 
+*** 返回闭包时牢记一点：返回函数不要引用任何循环变量，或者后续会发生变化的变量。
+'''
+
+'''---------------------装饰器-----------------------
+@log, @定义Decorator
+在函数调用前后自动打印日志，但又不希望修改now()函数的定义，这种在代码运行期间动态增加功能的方式，称之为“装饰器”（Decorator）。
+目标函数作为参数存入，执行预先定义好的装饰器函数 。
+
+
+
+'''
+
+def log(func):
+    def wrapper(*args,**kw):                    #参数要一致
+        print('*args=', args )
+        print('**kw=', kw )
+        print('call %s():' % func.__name__)     # func.__name__ :可以获取函数名称
+        return func(*args,**kw)                 #参数要一致
+    return wrapper;
+
+@log        #定义装饰器
+def now(*args,**kw):                            #参数要一致
+    print('2015-3-25')
+
+#now(1,2,3);
+
+#等价于now = log(now)
+
+def log2(str):              #接受自己的参数
+    print(str)
+    def wrapper(func2):           #接受外部函数
+
+        return func2()      #返回出去
+    return wrapper
+
+@log2('rrrrrr')
+def now2():
+    print('bbbbbb')
+
+#now2();
+
+#等价于now = log('execute')(now)
+
+
+#如此一来 now的名称就改为wrapper，成为一个新函数，需要把原始函数的__name__复制到wrapper()函数，否则，有些依赖函数签名的代码执行就会出错。 借助 functools 包，处理该问题 @functools.wraps(func)
+#具体函数如下：
+
+import functools
+
+def log(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kw):
+        print('call %s():' % func.__name__)
+        return func(*args, **kw)
+    return wrapper
+
+
+#log自己带参
+
+import functools
+
+def log(text):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kw):
+            print('%s %s():' % (text, func.__name__))
+            return func(*args, **kw)
+        return wrapper
+    return decorator
+
+
+import time, functools
+
+def metric(func):
+    def wrapper(*args,**kw):
+        print('%s executed in %s ms' % (func.__name__, 10.24))
+        #return func                错误
+        return func(*args,**kw)     #必须执行函数
+    return wrapper
+
+'''
+练习：
+设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间：
+'''
+@metric
+def fast(x, y):
+    time.sleep(0.0012)  #延时
+    return x + y;
+
+@metric
+def slow(x, y, z):
+    time.sleep(0.1234)
+    return x * y * z;
+
+f = fast(11, 22)
+print(f)
+s = slow(11, 22, 33)
+print(s)
+if f != 33:
+    print('测试失败!')
+elif s != 7986:
+    print('测试失败!')
+else:
+    print('测试成功!')
+
+
+'''------------------偏函数---------------------
+functools模块
+functools.partial就是帮助我们创建一个偏函数 ,不需要我们自己定义int2()
+int2 = functools.partial(int, base=2)
 '''
