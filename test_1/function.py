@@ -67,11 +67,12 @@ reduce(f, [x1, x2, x3, x4])
             ......
 
 lambda 用于支持将函数赋值给变量的一个操作符 默认是返回的,所以不用再加return关键字,不然会报错，关键字lambda表示匿名函数
+lambda定义了多少参数，调用时，也要使用对应的参数
 result = lambda x: x * x            #定义了1个参数x
 result = lambda x,y: x * y          #定义了2个参数x,y
 result = lambda : 2 * 5             #不定义参数
 result = lambda : x * y             #不定义参数，但x,y必须有上面代码提供
-result(2)       # 输出：4
+ 
 
 def a(a):
     b = lambda x: x * a     #将函数赋值给变量，本身不会运算，匿名函数也是一个函数对象，也可以把匿名函数赋值给一个变量，再利用变量来调用该函数
