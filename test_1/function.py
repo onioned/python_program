@@ -148,7 +148,7 @@ for n in primes():
 #sorted（[],key = fun, reverse=True、false） 排序
 #key指定的函数将作用于list的每一个元素上，并根据key函数返回的结果进行排序.  --- 2步走
 
-L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)] 
+L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
 #按照字符串排序
 def by_name(t):
     return t[0] #根据元素返回的数据再进行排序
