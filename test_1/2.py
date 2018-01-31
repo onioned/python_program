@@ -30,6 +30,8 @@ def _odd_iter():
 
 
 def _not_divisible(n):
+    #print('x=',x);
+    print('n=',n);
     return lambda x: x % n > 0
 
 
@@ -44,7 +46,7 @@ def primes():
 
 # 打印1000以内的素数:
 for n in primes():
-    if n < 1000:
+    if n < 10:
         print(n)
     else:
         break
