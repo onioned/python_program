@@ -1,5 +1,7 @@
 
 # -*- coding: utf-8 -*-
+'这是函数的学习'
+
 '''
 print ('ABCDEFG'[:3])
 
