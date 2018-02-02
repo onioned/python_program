@@ -341,3 +341,8 @@ functools模块
 functools.partial就是帮助我们创建一个偏函数 ,不需要我们自己定义int2()
 int2 = functools.partial(int, base=2)
 '''
+
+#import 函数
+
+def import_fun():
+    print('import_fun')

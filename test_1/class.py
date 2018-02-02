@@ -159,8 +159,27 @@ __call__
 '''
 
 '''---------------------使用枚举类------------------------
+定义一组常量类
+Enum 
+
+
+from enum import Enum
+
+Month = Enum('Month', ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
+'''
+
+
+'''-----------------------使用元类-----------------------------
+type()
+即可以返回数据类型，也可以创建新类型，包括创建类
+
+ Hello = type('Hello', (object,), dict(hello=fn)) # 创建Hello class
+ 
+3要素：
+1.class的名称；
+2.继承的父类集合，注意Python支持多重继承，如果只有一个父类，别忘了tuple的单元素写法；
+3.class的方法名称与函数绑定，这里我们把函数fn绑定到方法名hello上。
 
 
 '''
-
 

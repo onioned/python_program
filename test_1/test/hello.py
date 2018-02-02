@@ -18,3 +18,6 @@ def test():
 
 if __name__=='__main__':
     test()
+
+
+parm = '模块 hello-test ';
