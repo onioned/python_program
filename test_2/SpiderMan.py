@@ -20,6 +20,7 @@ class SpiderMan(object):
             try:
                 #从URL管理器获取新的url
                 new_url = self.manager.get_new_url()
+                print(new_url)
                 #HTML下载器下载网页
                 html = self.downloader.download(new_url)
                 #HTML解析器抽取网页数据
@@ -28,6 +29,7 @@ class SpiderMan(object):
                 self.manager.add_new_urls(new_urls)
                 #数据存储器储存文件
                 self.output.store_data(data)
+
                 print ("已经抓取%s个链接"%self.manager.old_url_size())
             except Exception as e:
                 print (e)
@@ -37,5 +39,5 @@ class SpiderMan(object):
 
 if __name__=="__main__":
     spider_man = SpiderMan()
-    #spider_man.crawl("http://baike.baidu.com/view/284853.htm")
-    spider_man.crawl("https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB")
+    spider_man.crawl("http://baike.baidu.com/view/284853.htm")
+    #spider_man.crawl("https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB")
