@@ -3,10 +3,10 @@
 
 #3.0版本中已经将urllib2、urlparse、和robotparser并入了urllib中，并且修改urllib模块，其中包含5个子模块，即是help()中看到的那五个名字。
 
-#urljoin() 拼接URL，它以base作为其基地址，然后与url中的相对地址相结合组成一个绝对URL地址
+#urljoin(base,url) 拼接URL，它以base作为其基地址，然后与url中的相对地址相结合组成一个绝对URL地址
 #urlsplit()
 #urlunsplit()
-#urlparse() 解析成6个部分
+#urlparse(url) 解析成6个部分
 
 from urllib import parse as urlparse
 #help(urlparse)
