@@ -1,7 +1,7 @@
 # coding=utf-8
 print 123;
-
 print(77777);
+print('123'+'4356');  # 字符串拼接用 +
 
 a = 0
 b = 200

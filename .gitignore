@@ -22,10 +22,10 @@ test_1/.idea/workspace.xml
 test_1/venv
 test_1/venv1
 test_1/venv36
- 
 test_1/2.py
 
 test_2/.idea
 test_2/venv36
+test_2/__pycache__
 
 python_module
