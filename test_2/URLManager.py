@@ -20,9 +20,9 @@ class UrlManager(object):
         self.old_urls.add(new_url)     #放进就链接列表里面
         return new_url
 
-    def add_new_url(self,url):
+    def add_new_url(self,url):  #单个链接添加
         '''
-         将新的URL添加到未爬取的URL集合中
+         将新的单个URL添加到未爬取的URL集合中
         :param url:单个URL
         :return:
         '''
@@ -31,9 +31,9 @@ class UrlManager(object):
         if url not in self.new_urls and url not in self.old_urls:   #如果连接不在未爬取链接列表并且也不再已爬取的链接列表里面，这个连接则可以加入到新链接列表里面
             self.new_urls.add(url)
 
-    def add_new_urls(self,urls):
+    def add_new_urls(self,urls):        #这个list添加
         '''
-        将新的URLS添加到未爬取的URL集合中
+        将新的URLS【list】添加到未爬取的URL集合中
         :param urls:url集合
         :return:
         '''
