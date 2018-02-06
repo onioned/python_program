@@ -58,7 +58,5 @@ class UrlManager(object):
         return len(self.old_urls)
 
 
-s = UrlManager()
-print(s.has_new_url())
 
 

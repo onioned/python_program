@@ -23,6 +23,8 @@ class HtmlParser(object):
         soup = BeautifulSoup(html_cont,'html.parser')
         new_urls = self._get_new_urls(page_url,soup)
         new_data = self._get_new_data(page_url,soup)
+        #print(new_urls)
+        #print(new_data)
         return new_urls,new_data
 
 
@@ -38,10 +40,16 @@ class HtmlParser(object):
         #原书代码
         # links = soup.find_all('a',href=re.compile(r'/view/\d+\.htm'))
         #2017-07-03 更新,原因百度词条的链接形式发生改变
-        links = soup.find_all('a', href=re.compile(r'/item/.*'))    #相对路径的地址
-        print(links);
-        return
+        #links = soup.find_all('a', href=re.compile(r'/item/.*'))    #相对路径的地址  搜索当前tag的所有tag子节点,并判断是否符合过滤器的条件
+        links = soup.find_all('a', href=re.compile(r'/item/.*'))    #相对路径的地址  .* 后面匹配任何字符
+        #print(links);
+        #print(type(links)); #返回的是 list
+
         for link in links:
+           #print(link);
+           #print(link.href);
+           # print(link['href']);       #获取soup对象的指定数据
+           # print(link['target']);
             #提取href属性
             new_url = link['href']
             #拼接成完整网址
